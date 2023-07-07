@@ -1,0 +1,45 @@
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 0 10px 0;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.hover-color-meat,
+.hover-color-veg,
+.hover-color-fruit {
+  background-color: rgba(0, 0, 0, 0.75);
+  transition: 0.5s all;
+}
+
+.hover-color-meat:hover {
+  background-color: rgba(173, 4, 72, 0.5);
+}
+
+.hover-color-veg:hover {
+  background-color: rgba(16, 66, 119, 0.5);
+}
+
+.hover-color-fruit:hover {
+  background-color: rgba(255, 100, 0, 0.5);
+}
+
+.price {
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.price h2 {
+  margin: 0;
+  padding: 0;
+}
+
+.product-name {
+  margin: 0 0 10px 0;
+}
+
+.info {
+  margin-bottom: 10px;
+}

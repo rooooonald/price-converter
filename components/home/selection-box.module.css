@@ -1,0 +1,74 @@
+.selection-box:hover {
+  color: #fff;
+}
+
+.selection-box {
+  color: #666;
+}
+
+.box-image {
+  width: 100px;
+  height: 100px;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+
+.meat,
+.veg,
+.fruit {
+  background-size: cover;
+}
+
+.meat {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("/images/bg/meat-bg.jpg");
+}
+
+.veg {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("/images/bg/veg-bg.jpg");
+}
+
+.fruit {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("/images/bg/fruit-bg.jpg");
+}
+
+.meat:hover,
+.veg:hover,
+.fruit:hover {
+  border: 2px white solid;
+}
+
+.meat:hover {
+  background-image: url("/images/bg/meat-bg.jpg");
+}
+
+.veg:hover {
+  background-image: url("/images/bg/veg-bg.jpg");
+}
+
+.fruit:hover {
+  background-image: url("/images/bg/fruit-bg.jpg");
+}
+
+.box-type {
+  text-align: center;
+  margin: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .box-image {
+    width: 150px;
+    height: 150px;
+  }
+}
