@@ -4,8 +4,10 @@ import Converter from "@/components/converter/converter";
 
 async function getProductList(params) {
   const res = await fetch(
-    `http://localhost:3000/api/${params["product-type"]}`,
-    { next: { revalidate: 60 } }
+    `https://price-converter.vercel.app/api/${params["product-type"]}`,
+    {
+      next: { revalidate: 60 },
+    }
   );
   const data = await res.json();
 
