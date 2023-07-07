@@ -1,15 +1,24 @@
 import { Fragment, useRef, useState } from "react";
 
 import { weightUnits } from "@/data/units";
+import ResultOutput from "./result-output";
 
 import styles from "./price-input.module.css";
 
-export default function PriceInput({ onCalculate, onSubmit, productType }) {
+export default function PriceInput({
+  onCalculate,
+  onSubmit,
+  productType,
+  calPrices,
+  update,
+}) {
   const priceRef = useRef();
   const unitRef = useRef();
   const productNameRef = useRef();
   const supermarketRef = useRef();
   const dateRef = useRef();
+
+  const [showInput, setShowInput] = useState(false);
 
   function changeHandler() {
     const inputtedPrice = +priceRef.current.value;
@@ -56,24 +65,31 @@ export default function PriceInput({ onCalculate, onSubmit, productType }) {
 
   return (
     <Fragment>
-      <div className={styles.wrapper}>
-        <div className={styles.input}>
+      <button
+        className={`${buttonStyle} ${styles["show-menu"]}`}
+        onClick={() => setShowInput((prev) => !prev)}
+      >
+        {showInput ? "- hide" : "+ add new"}
+      </button>
+      {showInput && (
+        <form className={styles.wrapper} onSubmit={submitHandler}>
           <label htmlFor="product-name">product</label>
           <input
             type="text"
             id="product-name"
             ref={productNameRef}
-            className={inputFieldStyle}
+            className={`${inputFieldStyle} ${styles.input}`}
+            required
           />
-        </div>
-        <div className={styles.input}>
+
           <label htmlFor="supermarket">supermarket</label>
           <input
             list="supermarket"
             name="supermarkets"
             id="supermarkets"
             ref={supermarketRef}
-            className={inputFieldStyle}
+            className={`${inputFieldStyle} ${styles.input}`}
+            required
           />
           <datalist id="supermarket">
             <option value="Loblaw" />
@@ -86,47 +102,50 @@ export default function PriceInput({ onCalculate, onSubmit, productType }) {
             <option value="Food Basics" />
             <option value="FreshCo" />
           </datalist>
-        </div>
-        <div className={styles.input}>
+
           <label htmlFor="date">date</label>
           <input
             type="date"
             id="date"
             ref={dateRef}
-            className={inputFieldStyle}
+            className={`${inputFieldStyle} ${styles.input}`}
+            required
           />
-        </div>
 
-        <div className={styles["input-price"]}>
-          <div className={styles["input-price-amount"]}>
-            <label htmlFor="price">price</label>
-            <input
-              type="number"
-              id="price"
-              ref={priceRef}
-              onChange={changeHandler}
-              className={inputFieldStyle}
-            />
+          <div className={styles["input-price"]}>
+            <div>
+              <label htmlFor="price">price</label>
+              <input
+                type="number"
+                id="price"
+                ref={priceRef}
+                onChange={changeHandler}
+                className={`${inputFieldStyle} ${styles["input-price-amount"]}`}
+                required
+              />
+            </div>
+            <div className={styles["input-price-unit"]}>
+              <label htmlFor="unit">unit</label>
+              <select
+                id="unit"
+                ref={unitRef}
+                onChange={changeHandler}
+                className={`${inputFieldStyle} ${styles["input-price-unit"]}`}
+                required
+              >
+                {weightUnits.map((unit) => {
+                  return <option key={unit}>{unit}</option>;
+                })}
+              </select>
+            </div>
           </div>
-          <div className={styles["input-price-unit"]}>
-            <label htmlFor="unit">unit</label>
-            <select
-              id="unit"
-              ref={unitRef}
-              onChange={changeHandler}
-              className={inputFieldStyle}
-            >
-              {weightUnits.map((unit) => {
-                return <option key={unit}>{unit}</option>;
-              })}
-            </select>
-          </div>
-        </div>
+          <ResultOutput prices={calPrices} />
 
-        <button className={buttonStyle} onClick={submitHandler}>
-          LET'S SAVE!
-        </button>
-      </div>
+          <button className={buttonStyle}>
+            {update ? "saving ..." : "add"}
+          </button>
+        </form>
+      )}
     </Fragment>
   );
 }

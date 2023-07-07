@@ -27,7 +27,7 @@
   align-items: center;
   cursor: pointer;
 
-  animation: button-animation 0.5s forwards normal ease-in-out;
+  animation: button-animation 0.25s forwards normal ease-in-out;
 }
 
 .btn-active {

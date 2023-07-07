@@ -1,3 +1,5 @@
+"use client";
+
 import { Fragment } from "react";
 
 import styles from "./main-menu.module.css";
@@ -7,7 +9,7 @@ export default function MainMenu() {
   return (
     <Fragment>
       <div className={styles.wrapper}>
-        <h1>what are you buyin'?</h1>
+        <h1>wt r u buyin'?</h1>
         <div className={styles.selection}>
           <SelectionBox productType="meat" />
           <SelectionBox productType="veg" />

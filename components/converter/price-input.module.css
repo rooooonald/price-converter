@@ -1,48 +1,47 @@
 .wrapper {
   display: flex;
   margin-top: 20px;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-between;
+
+  animation: fadeIn 1s forwards normal;
+}
+
+.input,
+.input-price {
+  margin: 5px 0;
+  width: 100%;
 }
 
 .input-price {
-  margin: 5px 0;
-  width: 60%;
   display: flex;
 }
 
 .input-price-amount {
-  flex: 4;
   margin: 0 10px 0 0;
-}
-
-.input-price-amount input {
-  width: 95%;
+  width: 100px;
+  box-sizing: border-box;
 }
 
 .input-price-unit {
-  flex: 1;
   margin-right: 20px;
-}
-
-.input {
-  margin: 5px 0;
-  width: 100%;
+  width: 75px;
 }
 
 .btn-meat,
 .btn-veg,
 .btn-fruit {
-  width: 150px;
+  width: 100%;
   height: 50px;
   font-family: var(--font-comfortaa);
+  font-size: 18px;
   color: white;
   font-weight: 700;
   background-color: rgba(0, 0, 0, 0.75);
   border-radius: 10px;
   border: none;
-  margin: 20px 0 0 0;
+  margin: 10px 0;
   cursor: pointer;
   transition: all 1s;
 }
@@ -62,22 +61,54 @@
   background-color: rgba(255, 100, 0, 0.5);
 }
 
+.show-menu {
+  border: 1px white solid;
+  background-color: transparent;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 768px) {
-  .wrapper {
-    flex-direction: column;
+  .input,
+  .input-price {
+    width: 180px;
   }
 
-  .input-price-amount input {
+  .input-price {
+    display: flex;
+  }
+
+  .input-price-amount {
+    margin: 0 10px 0 0;
     width: 100px;
+    box-sizing: border-box;
   }
 
-  .input-price-unit select {
+  .input-price-unit {
+    margin-right: 20px;
     width: 75px;
   }
 
   .btn-meat,
   .btn-veg,
   .btn-fruit {
-    margin: 20px 0;
+    width: 180px;
+  }
+
+  .show-menu {
+    width: 100%;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
   }
 }

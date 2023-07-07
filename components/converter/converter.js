@@ -3,7 +3,6 @@
 import { Fragment, useState } from "react";
 
 import PriceInput from "./price-input";
-import ResultOutput from "./result-output";
 import PriceRecord from "../price-record/price-record";
 import calculate from "@/lib/weight-calculator";
 
@@ -17,7 +16,7 @@ export default function Converter({ iniProductList, productType }) {
     kati: 0,
   });
 
-  const [isSubmitted, setIsSubmitted] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function calculateHandler(inputData) {
     const result = calculate(inputData);
@@ -25,12 +24,12 @@ export default function Converter({ iniProductList, productType }) {
   }
 
   async function submitHandler(dataBody) {
-    setIsSubmitted(false);
+    setIsSubmitting(true);
     try {
       const calPrices = calculate(dataBody);
       dataBody = { ...dataBody, calPrices };
       await sendDataHandler(dataBody);
-      setIsSubmitted(true);
+      setIsSubmitting(false);
     } catch (err) {
       // Error message
     }
@@ -77,12 +76,13 @@ export default function Converter({ iniProductList, productType }) {
               onCalculate={calculateHandler}
               onSubmit={submitHandler}
               productType={productType}
+              calPrices={calPrices}
+              update={isSubmitting}
             />
-            <ResultOutput prices={calPrices} />
           </div>
           <div className={styles.record}>
             <PriceRecord
-              update={isSubmitted}
+              update={isSubmitting}
               iniProductList={iniProductList}
               productType={productType}
             />

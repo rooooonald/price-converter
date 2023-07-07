@@ -19,13 +19,16 @@ export default function ProductCard({ product, displayUnit, productType }) {
   const currency = currentCtx.currency;
 
   const [prices, setPrices] = useState(calPrices);
+  const [currencyUnit, setCurrencyUnit] = useState("CAD");
 
   useEffect(() => {
     if (currency === "hkd") {
       setPrices(convertToHkd(calPrices));
+      setCurrencyUnit("HKD");
     }
     if (currency === "cad") {
       setPrices(calPrices);
+      setCurrencyUnit("CAD");
     }
   }, [currency]);
 
@@ -60,9 +63,12 @@ export default function ProductCard({ product, displayUnit, productType }) {
         </div>
         <div className={styles.price}>
           <h2>
-            {displayUnit === "lb" && `$${prices.lb.toFixed(2)}/lb`}
-            {displayUnit === "kg" && `$${prices.kg.toFixed(2)}/kg`}
-            {displayUnit === "kati" && `$${prices.kati.toFixed(2)}/kati`}
+            {displayUnit === "lb" &&
+              `${currencyUnit}${prices.lb.toFixed(2)}/lb`}
+            {displayUnit === "kg" &&
+              `${currencyUnit}${prices.kg.toFixed(2)}/kg`}
+            {displayUnit === "kati" &&
+              `${currencyUnit}${prices.kati.toFixed(2)}/kati`}
           </h2>
         </div>
       </div>

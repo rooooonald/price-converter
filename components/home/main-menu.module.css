@@ -5,10 +5,11 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-  background-color: #101010;
+
   text-align: center;
 
-  animation: zoomin 0.5s normal forwards;
+  opacity: 0;
+  animation: zoomin 0.5s normal 0.5s forwards;
 }
 
 .selection {
@@ -27,8 +28,10 @@
 @keyframes zoomin {
   0% {
     transform: scale(1.2);
+    opacity: 0;
   }
   100% {
     transform: scale(1);
+    opacity: 1;
   }
 }

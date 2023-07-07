@@ -1,14 +1,14 @@
-.selection-box:hover {
+.wrapper:hover {
   color: #fff;
 }
 
-.selection-box {
+.wrapper {
   color: #666;
 }
 
 .box-image {
-  width: 100px;
-  height: 100px;
+  width: 100%;
+  height: 100%;
   box-sizing: border-box;
   border-radius: 10px;
 }
@@ -66,9 +66,9 @@
   margin: 10px;
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   .box-image {
     width: 150px;
     height: 150px;
   }
-}
+} */
