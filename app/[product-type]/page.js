@@ -8,8 +8,6 @@ async function getProductList(params) {
     { next: { revalidate: 60 } }
   );
 
-  // https://price-converter.vercel.app
-
   const data = await res.json();
 
   return data.productList;
