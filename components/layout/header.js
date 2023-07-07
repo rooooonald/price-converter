@@ -31,7 +31,7 @@ export default function Header() {
                   <FontAwesomeIcon
                     icon={faDrumstickBite}
                     style={{ color: "#a71616" }}
-                    size="2xl"
+                    size="xl"
                   />
                 </li>
               </Link>
@@ -42,7 +42,7 @@ export default function Header() {
                   <FontAwesomeIcon
                     icon={faCarrot}
                     style={{ color: "#159358" }}
-                    size="2xl"
+                    size="xl"
                   />
                 </li>
               </Link>
@@ -53,7 +53,7 @@ export default function Header() {
                   <FontAwesomeIcon
                     icon={faAppleWhole}
                     style={{ color: "#e6a314" }}
-                    size="2xl"
+                    size="xl"
                   />
                 </li>
               </Link>
@@ -65,7 +65,7 @@ export default function Header() {
                 setShowShoppingMenu((prev) => !prev);
               }}
             >
-              <FontAwesomeIcon icon={faBasketShopping} size="2xl" />
+              <FontAwesomeIcon icon={faBasketShopping} size="xl" />
             </li>
           </ul>
         </nav>
@@ -104,7 +104,7 @@ export default function Header() {
                 setShowShoppingMenu(false);
               }}
             >
-              <FontAwesomeIcon icon={faDollarSign} size="2xl" />
+              <FontAwesomeIcon icon={faDollarSign} size="xl" />
             </li>
           </ul>
         </nav>
