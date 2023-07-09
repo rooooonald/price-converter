@@ -30,7 +30,9 @@ export default function PriceInput({
     onCalculate(dataBody);
   }
 
-  function submitHandler() {
+  function submitHandler(event) {
+    event.preventDefault();
+
     const inputtedPrice = +priceRef.current.value;
     const selectedUnit = unitRef.current.value;
     const inputtedSupermarket = supermarketRef.current.value;
