@@ -122,6 +122,7 @@ export default function PriceInput({
                 onChange={changeHandler}
                 className={`${inputFieldStyle} ${styles["input-price-amount"]}`}
                 required
+                step=".01"
               />
             </div>
             <div className={styles["input-price-unit"]}>
@@ -132,7 +133,6 @@ export default function PriceInput({
                 onChange={changeHandler}
                 className={`${inputFieldStyle} ${styles["input-price-unit"]}`}
                 required
-                step="1"
               >
                 {weightUnits.map((unit) => {
                   return <option key={unit}>{unit}</option>;
