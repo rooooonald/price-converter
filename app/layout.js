@@ -10,7 +10,7 @@ config.autoAddCss = false;
 
 export const metadata = {
   title: "Price Converter",
-  description: "Compare the price of groceries in different units",
+  description: "Compare grocery prices in different units.",
 };
 
 const comfortaa = Comfortaa({

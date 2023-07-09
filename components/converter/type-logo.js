@@ -1,5 +1,3 @@
-import { Fragment } from "react";
-
 import styles from "./type-logo.module.css";
 
 export default function TypeLogo({ productType }) {
@@ -15,9 +13,9 @@ export default function TypeLogo({ productType }) {
   }
 
   return (
-    <Fragment>
+    <>
       <h1 className={styles.title}>{productType.toUpperCase()}</h1>
       <h2 className={styles.pronounciation}>{pronounciation}</h2>
-    </Fragment>
+    </>
   );
 }

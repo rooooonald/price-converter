@@ -12,6 +12,10 @@
   animation: zoomin 0.5s normal 0.5s forwards;
 }
 
+.wrapper h1 {
+  margin-top: 0;
+}
+
 .selection {
   display: flex;
   flex-direction: row;

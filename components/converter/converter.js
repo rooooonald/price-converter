@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useState } from "react";
+import { useState } from "react";
 
 import PriceInput from "./price-input";
 import PriceRecord from "../price-record/price-record";
@@ -67,28 +67,26 @@ export default function Converter({ iniProductList, productType }) {
   }
 
   return (
-    <Fragment>
-      <div className={bgClassDark}>
-        <div className={`${styles.wrapper} ${bgClass}`}>
-          <div className={styles["price-input"]}>
-            <TypeLogo productType={productType} />
-            <PriceInput
-              onCalculate={calculateHandler}
-              onSubmit={submitHandler}
-              productType={productType}
-              calPrices={calPrices}
-              update={isSubmitting}
-            />
-          </div>
-          <div className={styles.record}>
-            <PriceRecord
-              update={isSubmitting}
-              iniProductList={iniProductList}
-              productType={productType}
-            />
-          </div>
+    <div className={bgClassDark}>
+      <div className={`${styles.wrapper} ${bgClass}`}>
+        <div className={styles["price-input"]}>
+          <TypeLogo productType={productType} />
+          <PriceInput
+            onCalculate={calculateHandler}
+            onSubmit={submitHandler}
+            productType={productType}
+            calPrices={calPrices}
+            update={isSubmitting}
+          />
+        </div>
+        <div className={styles.record}>
+          <PriceRecord
+            update={isSubmitting}
+            iniProductList={iniProductList}
+            productType={productType}
+          />
         </div>
       </div>
-    </Fragment>
+    </div>
   );
 }

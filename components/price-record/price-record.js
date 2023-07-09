@@ -1,4 +1,4 @@
-import { Fragment, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import ProductList from "./product-list";
 
 export default function PriceRecord({ update, iniProductList, productType }) {
@@ -10,9 +10,5 @@ export default function PriceRecord({ update, iniProductList, productType }) {
       .then((data) => setProductList(data.productList));
   }, [productType, update]);
 
-  return (
-    <Fragment>
-      <ProductList products={productList} productType={productType} />
-    </Fragment>
-  );
+  return <ProductList products={productList} productType={productType} />;
 }

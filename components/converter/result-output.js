@@ -1,4 +1,4 @@
-import { Fragment, useContext, useState, useEffect } from "react";
+import { useContext, useState, useEffect } from "react";
 
 import { CurrencyContext } from "@/context/currency-context";
 import convertToHkd from "@/lib/convert-to-hkd";
@@ -29,12 +29,10 @@ export default function ResultOutput({ prices }) {
   }
 
   return (
-    <Fragment>
-      <div className={styles.wrapper}>
-        <div>${price.lb.toFixed(2)}/lb</div>
-        <div>${price.kg.toFixed(2)}/kg</div>
-        <div>${price.kati.toFixed(2)}/kati</div>
-      </div>
-    </Fragment>
+    <div className={styles.wrapper}>
+      <div>${price.lb.toFixed(2)}/lb</div>
+      <div>${price.kg.toFixed(2)}/kg</div>
+      <div>${price.kati.toFixed(2)}/kati</div>
+    </div>
   );
 }

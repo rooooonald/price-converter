@@ -1,5 +1,3 @@
-import { Fragment } from "react";
-
 import Converter from "@/components/converter/converter";
 
 export async function generateMetadata({ params }) {
@@ -12,7 +10,7 @@ export async function generateMetadata({ params }) {
 async function getProductList(params) {
   const res = await fetch(
     `http://${process.env.domain}/api/${params["product-type"]}`,
-    { next: { revalidate: 60 } }
+    { next: { revalidate: 1800 } }
   );
 
   const data = await res.json();
@@ -24,11 +22,9 @@ export default async function ConverterPage({ params }) {
   const iniProductList = await getProductList(params);
 
   return (
-    <Fragment>
-      <Converter
-        iniProductList={iniProductList}
-        productType={params["product-type"]}
-      />
-    </Fragment>
+    <Converter
+      iniProductList={iniProductList}
+      productType={params["product-type"]}
+    />
   );
 }

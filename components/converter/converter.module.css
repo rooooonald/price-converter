@@ -86,10 +86,10 @@
 
 @keyframes zoomin {
   0% {
-    transform: scale(1.1) rotate(10deg);
+    transform: scale(1.1) rotate(4deg);
   }
   50% {
-    transform: rotate(-5deg);
+    transform: rotate(-2.5deg);
   }
   100% {
     transform: scale(1) rotate(0deg);

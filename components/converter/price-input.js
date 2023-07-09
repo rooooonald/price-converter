@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState } from "react";
+import { useRef, useState } from "react";
 
 import { weightUnits } from "@/data/units";
 import ResultOutput from "./result-output";
@@ -64,7 +64,7 @@ export default function PriceInput({
   }
 
   return (
-    <Fragment>
+    <>
       <button
         className={`${buttonStyle} ${styles["show-menu"]}`}
         onClick={() => setShowInput((prev) => !prev)}
@@ -132,6 +132,7 @@ export default function PriceInput({
                 onChange={changeHandler}
                 className={`${inputFieldStyle} ${styles["input-price-unit"]}`}
                 required
+                step="1"
               >
                 {weightUnits.map((unit) => {
                   return <option key={unit}>{unit}</option>;
@@ -146,6 +147,6 @@ export default function PriceInput({
           </button>
         </form>
       )}
-    </Fragment>
+    </>
   );
 }
