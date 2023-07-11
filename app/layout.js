@@ -11,6 +11,7 @@ config.autoAddCss = false;
 export const metadata = {
   title: "Price Converter",
   description: "Compare grocery prices in different units.",
+  viewport: "user-scalable=no, width=device-width, initial-scale=1",
 };
 
 const comfortaa = Comfortaa({
