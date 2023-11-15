@@ -1,6 +1,6 @@
 import CurrencyContextProvider from "@/context/currency-context";
 
-import { Comfortaa } from "next/font/google";
+import { Comfortaa, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 
 // Prevent flickering of icons
@@ -21,9 +21,16 @@ const comfortaa = Comfortaa({
   variable: "--font-comfortaa",
 });
 
+const bebas_neue = Bebas_Neue({
+  weight: ["400"],
+  display: "swap",
+  subsets: ["latin"],
+  variable: "--font-bebas-neue",
+});
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={comfortaa.variable}>
+    <html lang="en" className={`${comfortaa.variable} ${bebas_neue.variable}`}>
       <body>
         <CurrencyContextProvider>{children}</CurrencyContextProvider>
       </body>

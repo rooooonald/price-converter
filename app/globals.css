@@ -3,10 +3,15 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  font-family: var(--font-comfortaa);
+  font-family: var(--font-bebas-neue);
   color: white;
   position: fixed;
   background-color: #101010;
+}
+
+h1,
+h2 {
+  font-family: var(--font-comfortaa);
 }
 
 label {
@@ -29,11 +34,14 @@ select {
   border-radius: 10px;
   background-color: rgba(0, 0, 0, 0.75);
   color: white;
-  font-family: var(--font-comfortaa);
+  font-family: var(--font-bebas-neue);
   font-size: 16px;
-  /* transition: all 1s; */
   padding-left: 10px;
   box-sizing: border-box;
+}
+
+button {
+  font-family: var(--font-bebas-neue);
 }
 
 input:focus,

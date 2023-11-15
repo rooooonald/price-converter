@@ -12,11 +12,10 @@ export async function GET(req, { params }) {
     );
   }
 
-  const db = client.db("price-converter");
-
-  const productType = params["product-type"];
-
   try {
+    const db = client.db("price-converter");
+    const productType = params["product-type"];
+
     const result = await db
       .collection("products")
       .find({

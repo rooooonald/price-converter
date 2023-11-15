@@ -12,9 +12,8 @@ export async function POST(req) {
     );
   }
 
-  const db = client.db("price-converter");
-
   try {
+    const db = client.db("price-converter");
     const dataBody = await req.json();
     const result = await db.collection("products").insertOne(dataBody);
     dataBody.id = result.insertedId;
