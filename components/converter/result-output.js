@@ -22,12 +22,6 @@ export default function ResultOutput({ prices }) {
     }
   }, [currency, prices]);
 
-  // set the price to display
-
-  function clickHandler() {
-    currentCtx.changeCurrency(currency === "cad" ? "hkd" : "cad");
-  }
-
   return (
     <div className={styles.wrapper}>
       <div>${price.lb.toFixed(2)}/lb</div>

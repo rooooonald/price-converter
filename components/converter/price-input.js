@@ -10,7 +10,7 @@ export default function PriceInput({
   onSubmit,
   productType,
   calPrices,
-  update,
+  isSubmitting,
 }) {
   const priceRef = useRef();
   const unitRef = useRef();
@@ -136,16 +136,16 @@ export default function PriceInput({
                 className={`${inputFieldStyle} ${styles["input-price-unit"]}`}
                 required
               >
-                {weightUnits.map((unit) => {
-                  return <option key={unit}>{unit}</option>;
-                })}
+                {weightUnits.map((unit) => (
+                  <option key={unit}>{unit}</option>
+                ))}
               </select>
             </div>
           </div>
           <ResultOutput prices={calPrices} />
 
           <button className={buttonStyle}>
-            {update ? "saving ..." : "add"}
+            {isSubmitting ? "saving ..." : "add"}
           </button>
         </form>
       )}

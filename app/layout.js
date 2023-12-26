@@ -6,6 +6,7 @@ import "./globals.css";
 // Prevent flickering of icons
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import Provider from "@/components/provider/provider";
 config.autoAddCss = false;
 
 export const metadata = {
@@ -32,7 +33,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${comfortaa.variable} ${bebas_neue.variable}`}>
       <body>
-        <CurrencyContextProvider>{children}</CurrencyContextProvider>
+        <Provider>{children}</Provider>
       </body>
     </html>
   );

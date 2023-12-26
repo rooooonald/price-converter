@@ -8,15 +8,15 @@ import calculate from "@/lib/weight-calculator";
 
 import styles from "./converter.module.css";
 import TypeLogo from "./type-logo";
+import { useMutation } from "@tanstack/react-query";
+import { addNewProduct, queryClient } from "@/lib/http";
 
-export default function Converter({ iniProductList, productType }) {
+export default function Converter({ productType }) {
   const [calPrices, setCalPrices] = useState({
     lb: 0,
     kg: 0,
     kati: 0,
   });
-
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
   function calculateHandler(inputData) {
     const result = calculate(inputData);
@@ -24,33 +24,52 @@ export default function Converter({ iniProductList, productType }) {
   }
 
   async function submitHandler(dataBody) {
-    setIsSubmitting(true);
-    try {
-      const calPrices = calculate(dataBody);
-      dataBody = { ...dataBody, calPrices };
-      await sendDataHandler(dataBody);
-      setIsSubmitting(false);
-    } catch (err) {
-      // Error message
-    }
+    const calPrices = calculate(dataBody);
+    dataBody = { ...dataBody, calPrices };
+    mutate(dataBody);
   }
 
-  async function sendDataHandler(dataBody) {
-    const res = await fetch("/api/add-products", {
-      method: "POST",
-      body: JSON.stringify(dataBody),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+  const { mutate, isPending, isError, error } = useMutation({
+    mutationFn: addNewProduct,
+    onMutate: async (dataBody) => {
+      await queryClient.cancelQueries({
+        queryKey: [
+          "product-list",
+          { productType: dataBody.selectedProductType },
+        ],
+      });
 
-    const data = await res.json();
+      const prevProductList = queryClient.getQueryData([
+        "product-list",
+        { productType: dataBody.selectedProductType },
+      ]);
 
-    console.log(data);
-    if (!res.ok) {
-      throw new Error(data.message || "something went wrong!");
-    }
-  }
+      const updatedProductList = [...prevProductList, dataBody].sort((a, b) => {
+        const aDate = new Date(a.inputtedDate);
+        const bDate = new Date(b.inputtedDate);
+        return bDate.getTime() - aDate.getTime();
+      });
+
+      queryClient.setQueryData(
+        ["product-list", { productType: dataBody.selectedProductType }],
+        updatedProductList
+      );
+
+      return { prevProductList };
+    },
+
+    onError: (error, data, context) => {
+      console.log("onError data: ", data);
+      queryClient.setQueryData(
+        ["product-list", { productType: data.selectedProductType }],
+        context.prevProductList
+      );
+    },
+
+    onSettled: () => {
+      queryClient.invalidateQueries("product-list");
+    },
+  });
 
   let bgClassDark, bgClass;
   if (productType === "meat") {
@@ -76,15 +95,11 @@ export default function Converter({ iniProductList, productType }) {
             onSubmit={submitHandler}
             productType={productType}
             calPrices={calPrices}
-            update={isSubmitting}
+            isSubmitting={isPending}
           />
         </div>
         <div className={styles.record}>
-          <PriceRecord
-            update={isSubmitting}
-            iniProductList={iniProductList}
-            productType={productType}
-          />
+          <PriceRecord productType={productType} />
         </div>
       </div>
     </div>

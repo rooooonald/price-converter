@@ -7,24 +7,6 @@ export async function generateMetadata({ params }) {
   };
 }
 
-async function getProductList(params) {
-  const res = await fetch(
-    `http://${process.env.domain}/api/${params["product-type"]}`,
-    { next: { revalidate: 1800 } }
-  );
-
-  const data = await res.json();
-
-  return data.productList;
-}
-
 export default async function ConverterPage({ params }) {
-  const iniProductList = await getProductList(params);
-
-  return (
-    <Converter
-      iniProductList={iniProductList}
-      productType={params["product-type"]}
-    />
-  );
+  return <Converter productType={params["product-type"]} />;
 }

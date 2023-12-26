@@ -1,14 +1,22 @@
-import { useState, useEffect } from "react";
 import ProductList from "./product-list";
+import { useQuery } from "@tanstack/react-query";
+import { fetchProductList } from "@/lib/http";
 
-export default function PriceRecord({ update, iniProductList, productType }) {
-  const [productList, setProductList] = useState(iniProductList);
+export default function PriceRecord({ productType }) {
+  const { data, isPending, isError, error } = useQuery({
+    queryKey: ["product-list", { productType }],
+    queryFn: ({ signal }) => fetchProductList({ signal, productType }),
+  });
 
-  useEffect(() => {
-    fetch(`/api/${productType}`)
-      .then((res) => res.json())
-      .then((data) => setProductList(data.productList));
-  }, [productType, update]);
+  if (isError) {
+    return <p>Error: {error.info?.message || "Failed!"}</p>;
+  }
 
-  return <ProductList products={productList} productType={productType} />;
+  if (isPending) {
+    return <p>Loading ...</p>;
+  }
+
+  if (data) {
+    return <ProductList products={data} productType={productType} />;
+  }
 }

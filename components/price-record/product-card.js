@@ -30,7 +30,7 @@ export default function ProductCard({ product, displayUnit, productType }) {
       setPrices(calPrices);
       setCurrencyUnit("CAD");
     }
-  }, [currency]);
+  }, [currency, calPrices]);
 
   let hoverColor;
   if (productType === "meat") {
