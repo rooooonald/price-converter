@@ -1,0 +1,41 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100dvh;
+
+  text-align: center;
+
+  opacity: 0;
+  animation: zoomin 0.5s normal 0.5s forwards;
+}
+
+.wrapper h1 {
+  margin-top: 0;
+}
+
+.selection {
+  display: flex;
+  flex-direction: row;
+  column-gap: 20px;
+}
+
+.meat,
+.veg,
+.fruit {
+  border-radius: 10px;
+  background-size: cover;
+}
+
+@keyframes zoomin {
+  0% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

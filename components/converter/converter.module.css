@@ -1,0 +1,105 @@
+.wrapper {
+  width: 90%;
+  height: 90dvh;
+  margin: auto;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  animation: zoomin 0.5s normal forwards ease-in-out;
+}
+
+.bg-meat,
+.bg-veg,
+.bg-fruit {
+  background-size: cover;
+}
+
+.bg-veg {
+  background-image: url("/images/bg/veg-bg.jpg");
+}
+
+.bg-fruit {
+  background-image: url("/images/bg/fruit-bg.jpg");
+}
+
+.bg-meat {
+  background-image: url("/images/bg/meat-bg.jpg");
+}
+
+.bg-meat-dark,
+.bg-veg-dark,
+.bg-fruit-dark {
+  height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background-size: cover;
+}
+
+.bg-meat-dark {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("/images/bg/meat-bg.jpg");
+}
+
+.bg-veg-dark {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("/images/bg/veg-bg.jpg");
+}
+
+.bg-fruit-dark {
+  background-image: linear-gradient(
+      rgba(0, 0, 0, 0.7) 0%,
+      rgba(0, 0, 0, 0.7) 100%
+    ),
+    url("/images/bg/fruit-bg.jpg");
+}
+
+.record {
+  overflow: scroll;
+}
+
+.hide {
+  display: none;
+}
+
+@media only screen and (min-width: 768px) {
+  .wrapper {
+    width: 70vw;
+    max-width: 700px;
+    height: 70dvh;
+    min-height: 550px;
+    column-gap: 20px;
+    flex-direction: row;
+  }
+
+  .price-input {
+    flex: 4;
+  }
+
+  .record {
+    flex: 5;
+  }
+
+  .hide {
+    display: block;
+  }
+}
+
+@keyframes zoomin {
+  0% {
+    transform: scale(1.1) rotate(4deg);
+  }
+  50% {
+    transform: rotate(-2.5deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
