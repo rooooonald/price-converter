@@ -6,7 +6,7 @@ import SelectionBox from "./selection-box";
 export default function MainMenu() {
   return (
     <div className={styles.wrapper}>
-      <h1>wt r u buyin'?</h1>
+      <h1>SELECT GROCERY TYPE</h1>
       <div className={styles.selection}>
         <SelectionBox productType="meat" />
         <SelectionBox productType="veg" />
