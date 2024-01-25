@@ -1,4 +1,4 @@
-import { useRef, useState } from "react";
+import { useRef } from "react";
 
 import { weightUnits } from "@/data/units";
 import ResultOutput from "./result-output";
