@@ -1,10 +1,13 @@
+import { useState } from "react";
+
 import ProductList from "./product-list";
 import { useQuery } from "@tanstack/react-query";
 import { fetchProductList } from "@/lib/http";
 import Loader from "@/ui/loader";
 
 import styles from "./price-record.module.css";
-import { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
 
 export default function PriceRecord({ productType }) {
   const [searchKeyword, setSearchKeyword] = useState("");
@@ -44,8 +47,11 @@ export default function PriceRecord({ productType }) {
     return (
       <div className={styles.wrapper}>
         <div className={styles.input}>
-          <label>Search </label>
+          <label htmlFor="search">
+            <FontAwesomeIcon icon={faMagnifyingGlass} size="sm" />
+          </label>
           <input
+            id="search"
             type="text"
             value={searchKeyword}
             onChange={(e) => setSearchKeyword(e.target.value)}

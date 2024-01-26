@@ -1,8 +1,15 @@
+.title,
+.pronounciation {
+  padding: 0;
+
+  text-shadow: 0 5px 5px rgba(0, 0, 0, 0.75);
+}
+
 .title {
+  margin: 0;
+
   font-weight: 700;
   font-size: 60px;
-  margin: 0;
-  padding: 0;
 }
 
 .pronounciation {

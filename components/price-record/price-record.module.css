@@ -25,6 +25,10 @@
   margin: 0;
 }
 
+.input label svg {
+  filter: drop-shadow(5px) !important;
+}
+
 .input input {
   width: 200px;
 }

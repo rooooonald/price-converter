@@ -75,7 +75,7 @@ export default function PriceInput({
       </button>
       {showInput && (
         <form className={styles.wrapper} onSubmit={submitHandler}>
-          <label htmlFor="product-name">product</label>
+          <label htmlFor="product-name">Product</label>
           <input
             type="text"
             id="product-name"
@@ -84,7 +84,7 @@ export default function PriceInput({
             required
           />
 
-          <label htmlFor="supermarkets">supermarket</label>
+          <label htmlFor="supermarkets">Supermarket</label>
           <input
             list="supermarket"
             name="supermarkets"
@@ -105,7 +105,7 @@ export default function PriceInput({
             <option value="FreshCo" />
           </datalist>
 
-          <label htmlFor="date">date</label>
+          <label htmlFor="date">Date</label>
           <input
             type="date"
             id="date"
@@ -116,7 +116,7 @@ export default function PriceInput({
 
           <div className={styles["input-price"]}>
             <div>
-              <label htmlFor="price">price</label>
+              <label htmlFor="price">Price</label>
               <input
                 type="number"
                 id="price"
@@ -128,7 +128,7 @@ export default function PriceInput({
               />
             </div>
             <div className={styles["input-price-unit"]}>
-              <label htmlFor="unit">unit</label>
+              <label htmlFor="unit">Unit</label>
               <select
                 id="unit"
                 ref={unitRef}
@@ -145,7 +145,7 @@ export default function PriceInput({
           <ResultOutput prices={calPrices} />
 
           <button className={buttonStyle}>
-            {isSubmitting ? "saving ..." : "add"}
+            {isSubmitting ? "Saving ..." : "Add"}
           </button>
         </form>
       )}
