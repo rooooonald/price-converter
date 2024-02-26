@@ -12,8 +12,8 @@
 
 .input,
 .input-price {
-  margin: 0 0 10px 0;
   width: 100%;
+  margin: 0 0 10px 0;
 }
 
 .input-price {
@@ -64,14 +64,17 @@
 }
 
 .show-menu {
-  border: 1px white solid;
-  background-color: transparent;
   height: 30px;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: pointer;
+
   text-shadow: 0 5px 5px rgba(0, 0, 0, 0.75);
+
+  border: 1px white solid;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 @media only screen and (min-width: 768px) {
@@ -90,8 +93,8 @@
   }
 
   .input-price-unit {
-    margin-right: 20px;
     width: 75px;
+    margin-right: 20px;
   }
 
   .btn-meat,
