@@ -1,5 +1,3 @@
-import CurrencyContextProvider from "@/context/currency-context";
-
 import { Comfortaa, Bebas_Neue } from "next/font/google";
 import "./globals.css";
 
@@ -18,15 +16,15 @@ export const metadata = {
 
 const comfortaa = Comfortaa({
   weight: ["400", "700"],
-  display: "swap",
   subsets: ["latin"],
+  display: "swap",
   variable: "--font-comfortaa",
 });
 
 const bebas_neue = Bebas_Neue({
   weight: ["400"],
-  display: "swap",
   subsets: ["latin"],
+  display: "swap",
   variable: "--font-bebas-neue",
 });
 
