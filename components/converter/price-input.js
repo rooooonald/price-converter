@@ -116,7 +116,7 @@ export default function PriceInput({
 
           <div className={styles["input-price"]}>
             <div>
-              <label htmlFor="price">Price</label>
+              <label htmlFor="price">Price (CAD)</label>
               <input
                 type="number"
                 id="price"

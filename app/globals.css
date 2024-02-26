@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   width: 100%;
   height: 100%;
@@ -10,7 +14,13 @@ body {
 }
 
 h1,
-h2 {
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
   font-family: var(--font-comfortaa);
 }
 
@@ -37,7 +47,6 @@ select {
   font-family: var(--font-bebas-neue);
   font-size: 16px;
   padding-left: 10px;
-  box-sizing: border-box;
 }
 
 button {

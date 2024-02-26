@@ -46,20 +46,17 @@ export default function ProductCard({ product, displayUnit, productType }) {
   return (
     <li>
       <div className={`${styles.wrapper} ${hoverColor}`}>
-        <div>
-          <div>
-            <h1 className={styles["product-name"]}>{name}</h1>
-          </div>
-          <div>
-            <ul>
-              <li className={styles.info}>
-                <FontAwesomeIcon icon={faCalendarDays} /> {date}
-              </li>
-              <li className={styles.info}>
-                <FontAwesomeIcon icon={faStore} size="sm" /> {supermarket}
-              </li>
-            </ul>
-          </div>
+        <h1 className={styles["product-name"]}>{name}</h1>
+
+        <div className={styles["info-panel"]}>
+          <ul>
+            <li className={styles.info}>
+              <FontAwesomeIcon icon={faCalendarDays} /> {date}
+            </li>
+            <li className={styles.info}>
+              <FontAwesomeIcon icon={faStore} size="sm" /> {supermarket}
+            </li>
+          </ul>
         </div>
         <div className={styles.price}>
           <p>Click to change unit</p>

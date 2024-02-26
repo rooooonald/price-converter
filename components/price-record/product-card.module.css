@@ -1,9 +1,13 @@
 .wrapper {
-  display: flex;
-  justify-content: space-between;
-  margin: 0 0 10px 0;
-  border-radius: 10px;
   padding: 10px;
+  margin: 0 0 10px 0;
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  row-gap: 0.5rem;
+
+  border-radius: 10px;
 }
 
 .hover-color-meat,
@@ -25,6 +29,16 @@
   background-color: rgba(255, 100, 0, 0.5);
 }
 
+.product-name {
+  width: 100%;
+  font-size: 1.5rem;
+}
+
+.info-panel {
+  display: flex;
+  justify-content: space-between;
+}
+
 .price {
   display: flex;
   flex-direction: column;
@@ -38,11 +52,7 @@
 }
 
 .price p {
-  font-size: 0.8rem;
   margin: 5px 0;
-}
 
-.product-name {
-  margin: 0 0 10px 0;
-  font-size: 24px;
+  font-size: 0.8rem;
 }
