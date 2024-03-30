@@ -3,9 +3,11 @@
   height: 90dvh;
   margin: auto;
   padding: 20px;
+
   display: flex;
   flex-direction: column;
   border-radius: 20px;
+
   animation: zoomin 0.5s normal forwards ease-in-out;
 }
 
@@ -62,7 +64,7 @@
 }
 
 .record {
-  overflow: scroll;
+  overflow: auto;
 }
 
 .hide {
